@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Website name and icon outside the main container -->
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <i class="fas fa-cloud-showers-heavy" style="font-size: 40px; color: rgb(138, 192, 228);margin-left: 15px;"></i>
+        <span style="color: rgb(255, 195, 247); font-size: 1.80em; font-weight: bold; margin-left: 1px;">BriefBot</span>
+    </div>
+    
+    <div class="container">
+        <h1 class="title">INPUT TEXT</h1>
+        <textarea id="inputText" class="input-text" placeholder="Enter your text here..."></textarea>
+        <input type="number" id="summaryLength" class="input-length" placeholder="Length of the Summary...">
+        <div class="buttons">
+            <input type="file" id="fileInput" class="hidden" accept=".txt">
+            <button class="button" onclick="uploadText()">Upload Text</button>
+            <button class="button" onclick="summarizeText()">Summarize</button>
+        </div>
+        <h2 class="summary-title">SUMMARY</h2>
+        <p id="summaryText" class="summary-text"></p>
+        <button class="small-button" onclick="copySummary()">Copy Summary</button>
+        <button class="small-button" onclick="resetSummarizer()">New</button>
+        <h2 class="senti-title">SENTIMENT ANALYSIS</h2>
+        <p id="senti-title" class="summary-text"></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
